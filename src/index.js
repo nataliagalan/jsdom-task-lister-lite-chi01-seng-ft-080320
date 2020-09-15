@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //append button to li
   //add delete function (removeChild) (li)
 
-    let submitBtn = document.getElementById('submit-btn')
+ 
     let form = document.querySelector('form')
 
     form.addEventListener('submit', function(event){
@@ -18,19 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
       newTask.id = task
       newTask.innerHTML = task
       newTask.setAttribute('priority', document.querySelector('#priority-select').value)
-      
-      let createdTask = document.getElementById(task)
-      if (createdTask.priority === "High") {
-        createdTask.style.color = "#a10a05"
-        debugger
+
+
+      if (newTask.getAttribute('priority') === "High") {
+        newTask.style.color = "#a10a05"
       }
-      else if (createdTask.priority === "Medium") {
-        createdTask.style.fontcolor = "yellow"
+      else if (newTask.getAttribute('priority') === "Medium") {
+        newTask.style.color = "#cfa902"
       }
-      else if (createdTask.priority === "Low") {
-        createdTask.style.color = "green"
+      else if (newTask.getAttribute('priority') === "Low") {
+        newTask.style.color = "#009c2c"
       }
-      
+
+
       document.querySelector('#tasks').appendChild(newTask)
       let deleteBtn = document.createElement('button')
       deleteBtn.innerText = 'x'
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.reset()
     })
 
+
     let dropdown = document.createElement('select')
     dropdown.name = "priority"
     dropdown.id = "priority-select"
@@ -54,9 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
       dropdown.appendChild(option)
     })
     document.querySelector('form').appendChild(dropdown)
-
- 
-
 
 
 
